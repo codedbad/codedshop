@@ -1,14 +1,3 @@
-<?php
-
-$con = mysqli_connect("localhost","root","110189","todo_list");
-
-// Check connection
-if (mysqli_connect_errno())
-{
-    echo "Failed to connect to MySQL: " . mysqli_connect_error();
-}
-mysqli_close($link);
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,228 +8,182 @@ mysqli_close($link);
     <link rel="stylesheet" href="styles/app.css">
     <title>codedbad : Rustams Šteinbergs</title>
 </head>
+<?php
+include_once 'config/app_config.php';
+?>
 
 <body>
+<header>
     <a href="https://github.com/codedbad">
         <div class="codedbad">
             codedbad
         </div>
     </a>
-    <header>
-        <a href="#">
-            <img class="img-cart" src="images/cart.png" alt="">
-        </a>
-        <a href="#">
-            <img class="img-home" src="images/home.png" alt="">
-        </a>
-    </header>
-    <main>
-        <div class="container-pv">
-            <div class="row-left">
-                <h5>Phone model</h5>
-                <p class="big-tx">
-                    <?php
-                            foreach ($prClass as $key => $val) {
-                                if($key == "model"){
-                                    echo $val;
-                                }
-                            }
-                    ?>
-                </p>
-                <p class="small-tx">color version</p>
-                <br>
-                <h5>Dimension</h5>
-                <p>
-                    <?php
-                            foreach ($prClass as $key => $val) {
-                                if($key == "dimension"){
-                                    echo $val;
-                                }
-                            }
-                        ?>
-                </p>
-                <p class="small-tx">HxWxD in mm</p>
-                <br>
-                <h5>OS</h5>
-                <p>
-                    <?php
-                            foreach ($prClass as $key => $val) {
-                                if($key == "os"){
-                                    echo $val;
-                                }
-                            }
-                        ?>
-                </p>
-                <p class="small-tx">operating system</p>
-            </div>
-            <div class="portrait-pv">
-                <img src="images/Apple-iPhoneXs-Gold-1-3x.jpg" alt="">
-            </div>
-            <div class="row-right">
-                <h5>Memory</h5>
-                <p>
-                    <?php
-                            foreach ($prClass as $key => $val) {
-                                if($key == "memory"){
-                                    echo $val;
-                                }
-                            }
-                        ?>
-                    <span>Gb</span>
-                </p>
-                <p class="small-tx">built in memory</p>
-                <br>
-                <h5>Screen</h5>
-                <p>
-                    <?php
-                            foreach ($prClass as $key => $val) {
-                                if($key == "screen"){
-                                    echo $val;
-                                }
-                            }
-                        ?>
-                </p>
-                <p class="small-tx">screen resolution</p>
-                <br>
-                <h5>Price</h5>
-                <p class="price-tag" href="#">
-                    <?php
-                            foreach ($prClass as $key => $val) {
-                                if($key == "price"){
-                                    echo $val;
-                                }
-                            }
-                        ?>
-                    <span>Eur</span>
-                    <span class="btn-block">
-                        <a class="btn" href="#">add to Cart</a>
+    <a href="#">
+        <img class="btn-cart" src="images/cart.png" alt="">
+    </a>
+    <a href="#">
+        <img class="btn-home" src="images/home.png" alt="">
+    </a>
+</header>
+<main>
+    <div id="p_view" class="container-pv">
+        <div class="row-left">
+            <h5>Phone model</h5>
+            <p class="big-tx">
+                <?php
+                foreach ($prClass as $key => $val) {
+                    if ($key == "mox") {
+                        echo $val;
+                    }
+                }
+                ?>
+            </p>
+            <p class="small-tx">color version</p>
+            <br>
+            <h5>Dimension</h5>
+            <p>
+                <?php
+                foreach ($prClass as $key => $val) {
+                    if ($key == "dim") {
+                        echo $val;
+                    }
+                }
+                ?>
+            </p>
+            <p class="small-tx">HxWxD in mm</p>
+            <br>
+            <h5>OS</h5>
+            <p>
+                <?php
+                foreach ($prClass as $key => $val) {
+                    if ($key == "osx") {
+                        echo $val;
+                    }
+                }
+                ?>
+            </p>
+            <p class="small-tx">operating system</p>
+        </div>
+        <div class="portrait-pv">
+            <img src="images/iphone.jpg" alt="">
+        </div>
+        <div class="row-right">
+            <h5>Memory</h5>
+            <p>
+                <?php
+                foreach ($prClass as $key => $val) {
+                    if ($key == "mem") {
+                        echo $val;
+                    }
+                }
+                ?>
+                <span>Gb</span>
+            </p>
+            <p class="small-tx">built in memory</p>
+            <br>
+            <h5>Screen</h5>
+            <p>
+                <?php
+                foreach ($prClass as $key => $val) {
+                    if ($key == "src") {
+                        echo $val;
+                    }
+                }
+                ?>
+            </p>
+            <p class="small-tx">screen resolution</p>
+            <br>
+            <h5>Price</h5>
+            <p class="price-tag">
+                <?php
+                foreach ($prClass as $key => $val) {
+                    if ($key == "prc") {
+                        echo $val;
+                    }
+                }
+                ?>
+                <span>Eur</span>
+                <span class="btn-block">
+                        <a class="btn" type="button" href="#">add to Cart</a>
                     </span>
-                </p>
-                <p class="small-tx">including taxes</p>
-            </div>
+            </p>
+            <p class="small-tx">including taxes</p>
         </div>
-        <div class="container-menu">
-            <div class="menu-right">Option:</div>
-            <div class="select-list">
-                <select>
-                    <option value="0">Select by:</option>
-                    <option value="1">Price</option>
-                    <option value="2">Memory</option>
-                    <option value="3">Color</option>
-                </select>
-            </div>
-            <div class="menu-left"><button>Reset</button></div>
+    </div>
+    <div class="container-menu">
+        <div class="menu-right">Option:</div>
+        <div class="select-list">
+            <select>
+                <option value="0">Select by:</option>
+                <option value="1">Price</option>
+                <option value="2">Memory</option>
+                <option value="3">Color</option>
+            </select>
         </div>
-        <div class="container-pl">
-            <a href="#" rel="">
-                <div class="portrait">
-                    <ul>
-                        <li class="small-tx-dg">Mobile Phones</li>
-                    </ul>
-                    <img src="images/samsung.jpg" alt="">
-                    <ul>
-                        <li class="medium-tx">Samsung S10+</li>
-                        <li class="small-tx">Black<span>,</span> <span>32Gb</span></li>
-                        <li class="price-tag-pl">€<span>899Eur</span></li>
-                    </ul>
-                </div>
-            </a>
-            <a href="#" rel="">
-                <div class="portrait">
-                    <ul>
-                        <li class="small-tx-dg">Mobile Phones</li>
-                    </ul>
-                    <img src="images/Apple-iPhoneXs-Gold-1-3x.jpg" alt="">
-                    <ul>
-                        <li class="medium-tx">Iphone Xs</li>
-                        <li class="small-tx">Gold<span>,</span> <span>64Gb</span></li>
-                        <li class="price-tag-pl">€<span>1099Eur</span></li>
-                    </ul>
-                </div>
-            </a>
-            <a href="#" rel="">
-                <div class="portrait">
-                    <ul>
-                        <li class="small-tx-dg">Mobile Phones</li>
-                    </ul>
-                    <img src="images/huawei.jpg" alt="">
-                    <ul>
-                        <li class="medium-tx">Huawei P30 pro</li>
-                        <li class="small-tx">Black<span>,</span> <span>64Gb</span></li>
-                        <li class="price-tag-pl">€<span>969Eur</span></li>
-                    </ul>
-                </div>
-            </a>
-            <a href="#" rel="">
-                <div class="portrait">
-                    <ul>
-                        <li class="small-tx-dg">Mobile Phones</li>
-                    </ul>
-                    <img src="images/xiaomi.jpg" alt="">
-                    <ul>
-                        <li class="medium-tx">Xioami mi 9</li>
-                        <li class="small-tx">White<span>,</span> <span>128Gb</span></li>
-                        <li class="price-tag-pl">€<span>799Eur</span></li>
-                    </ul>
-                </div>
-            </a>
-            <a href="#" rel="">
-                <div class="portrait">
-                    <ul>
-                        <li class="small-tx-dg">Mobile Phones</li>
-                    </ul>
-                    <img src="images/sony-xp.jpg" alt="">
-                    <ul>
-                        <li class="medium-tx">Sony Xperia 10 Plus</li>
-                        <li class="small-tx">Black<span>,</span> <span>64Gb</span></li>
-                        <li class="price-tag-pl">€<span>1190Eur</span></li>
-                    </ul>
-                </div>
-            </a>
-            <a href="#" rel="">
-                <div class="portrait">
-                    <ul>
-                        <li class="small-tx-dg">Mobile Phones</li>
-                    </ul>
-                    <img src="images/vivo.jpg" alt="">
-                    <ul>
-                        <li class="medium-tx">Vivo V15 Pro</li>
-                        <li class="small-tx">Gold<span>,</span> <span>32Gb</span></li>
-                        <li class="price-tag-pl">€<span>599Eur</span></li>
-                    </ul>
-                </div>
-            </a>
-            <a href="#" rel="">
-                <div class="portrait">
-                    <ul>
-                        <li class="small-tx-dg">Mobile Phones</li>
-                    </ul>
-                    <img src="images/moto.jpg" alt="">
-                    <ul>
-                        <li class="medium-tx">Moto G7</li>
-                        <li class="small-tx">Silver<span>,</span> <span>32Gb</span></li>
-                        <li class="price-tag-pl">€<span>699Eur</span></li>
-                    </ul>
-                </div>
-            </a>
-            <a href="#" rel="">
-                <div class="portrait">
-                    <ul>
-                        <li class="small-tx-dg">Mobile Phones</li>
-                    </ul>
-                    <img src="images/meizu.jpg" alt="">
-                    <ul>
-                        <li class="medium-tx">Meizu note 9</li>
-                        <li class="small-tx">Grey<span>,</span> <span>64Gb</span></li>
-                        <li class="price-tag-pl">€<span>799Eur</span></li>
-                    </ul>
-                </div>
-            </a>
+        <div class="menu-left">
+            <button class="btn-resset" type="submit" name="resset">Resset</button>
         </div>
-    </main>
+    </div>
+    <div class="container-pl">
+        <?php
+        $query = 'SELECT * from products ORDER by dat';
+        $result = $con->query($query, MYSQLI_STORE_RESULT);
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $mox = $row["mox"];
+                $dim = $row["dim"];
+                $osx = $row["osx"];
+                $mem = $row["mem"];
+                $src = $row["scr"];
+                $prc = $row["prc"];
+                $img = $row["img"];
+                ?>
+
+    <div class="portrait">
+        <ul>
+            <li class="small-tx-dg"><span>Mobile Phones</span></li>
+        </ul>
+    <a class="link" href="#p_view" rel="">
+            <img src="<?php echo $img;?>" alt="">
+        <ul>
+            <li class="medium-tx">
+                <span>
+                    <?php echo $mox;?>
+                </span>
+            </li>
+            <li class="small-tx">
+                <span>
+                    <?php echo $mem;?>
+                </span>
+                <span>Gb,</span>
+                <span>
+                    <?php echo $src;?>
+                </span>
+            </li>
+            <li class="price-tag-pl">
+                <span>€</span>
+                <span>
+                    <?php echo $prc;?>
+                <span>Eur</span>
+                </span>
+            </li>
+        </ul>
+    </a>
+    </div>
+    <?php
+        }
+    } else {
+        echo "0 results";
+    }
+
+    mysqli_close($con);
+    ?>
+    </div>
+</main>
     <footer>
 
     </footer>
 </body>
-
 </html>
