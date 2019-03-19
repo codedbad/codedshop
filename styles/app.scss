@@ -6,9 +6,10 @@ $colors: (
   text-gy: #373737,
   text-rd: #ff2800,
   text-we: #ffffff,
-  text-dg: #090F0F,
-  container-br: #bfbfbf
+  text-dg: #090f0f,
+  container-br: #bfbfbf,
   container-dg: #969696,
+  btn-hover: #e4e4e4
 );
 @function color($clip-path) {
   @return map-get($colors, $clip-path);
@@ -24,7 +25,6 @@ body {
   background: color(codedbad-bg);
   width: 100px;
   transform: rotateZ(90deg);
-  padding: 0px 0px;
   margin: 42px -43px;
   position: fixed;
   font-size: 12px;
@@ -32,13 +32,13 @@ body {
   z-index: 999;
 }
 header {
-  .img-cart {
+  .btn-cart {
     position: fixed;
     width: 48px;
     right: 75px;
     top: 20px;
   }
-  .img-home {
+  .btn-home {
     position: fixed;
     width: 48px;
     right: 75px;
@@ -49,7 +49,7 @@ header {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 20px;
+  padding: 10px;
   text-align: center;
   div {
     //border: 1px solid color(container-br);
@@ -71,11 +71,8 @@ header {
     height: 100%;
     vertical-align: middle;
     .small-tx {
-      font-size: 8px;
+      font-size: 10px;
     }
-  }
-  .big-tx {
-    color: #ff2800;
   }
   .row-right {
     margin: 100px 5px;
@@ -83,27 +80,20 @@ header {
     height: 100%;
     vertical-align: middle;
     .small-tx {
-      font-size: 8px;
+      font-size: 10px;
     }
-    .price-tag {
-      color: color(text-rd);
+    .btn-block {
+      margin-left: 10px;
+      border: 1px solid color(container-br);
+      padding: 10px;
+    }
+    .btn {
       text-decoration: none;
-      .btn-block {
-        border: 1px solid color(container-br);
-        padding: 10px;
-        border-radius: 5px;
-      }
-      .btn {
-        text-decoration: none;
-        color: color(text-gy);
-      }
+      color: color(text-gy);
     }
-  }
-}
-.btn-block:hover {
-  background-color: color(container-br);
-  .btn {
-    color: #bfbfbf;
+    .btn:hover {
+      font-weight: bold;
+    }
   }
 }
 
@@ -171,8 +161,74 @@ select {
   }
   .price-tag-pl {
     line-height: 40px;
+    color: color(text-dg);
   }
+}
+.link {
+  text-decoration: none;
 }
 .portrait:hover {
   border: 1px solid color(container-dg);
+}
+// ----------------------------------
+// -------- controlpanel.php --------
+// ----------------------------------
+.input {
+  width: 95%;
+  margin: 7px;
+  box-sizing: border-box;
+}
+.btn-submit {
+  text-decoration: none;
+  color: color(text-gy);
+  border: 1px solid color(container-br);
+  padding: 0px;
+  width: 120px;
+  background: color(text-we);
+}
+.btn-delete {
+  text-decoration: none;
+  color: color(text-gy);
+  border: 1px solid color(container-br);
+  padding: 0px;
+  width: 120px;
+  background: color(text-we);
+}
+.btn-resset {
+  text-decoration: none;
+  color: color(text-gy);
+  border: 1px solid color(container-br);
+  padding: 1px 30px;
+  background: color(text-we);
+}
+.small-tx {
+  font-size: 10px;
+}
+.small-tx-rd {
+  font-size: 10px;
+  color: color(text-rd);
+}
+.btn:hover {
+  font-weight: bold;
+}
+.btn-submit:hover, .btn-delete:hover, .btn-resset:hover{
+  border: 1px solid color(container-dg);
+}
+.cp_con {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 10px;
+  text-align: center;
+  div {
+    //border: 1px solid color(container-br);
+    margin: 5px;
+    height: auto;
+    width: 325px;
+    color: color(text-gy);
+    line-height: 0%;
+    label {
+      font-size: 12px;
+    }
+  }
 }
