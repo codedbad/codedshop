@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat");
+@import url('https://fonts.googleapis.com/css?family=Anton');
 
 $colors: (
   codedbad-tx: #ffffff,
@@ -7,6 +8,7 @@ $colors: (
   text-rd: #ff2800,
   text-we: #ffffff,
   text-dg: #090f0f,
+  text-btn: #969696,
   container-br: #bfbfbf,
   container-dg: #969696,
   btn-hover: #e4e4e4
@@ -70,8 +72,11 @@ header {
     text-align: right;
     height: 100%;
     vertical-align: middle;
+    width: 250px;
     .small-tx {
       font-size: 10px;
+      text-decoration: none;
+      color: color(text-gy);
     }
   }
   .row-right {
@@ -79,20 +84,24 @@ header {
     text-align: left;
     height: 100%;
     vertical-align: middle;
+    width: 250px;
     .small-tx {
       font-size: 10px;
     }
     .btn-block {
-      margin-left: 10px;
+      margin-left: 15px;
       border: 1px solid color(container-br);
-      padding: 10px;
+      padding: 10px 20px;
     }
     .btn {
+      font-family: 'Anton', cursive;
       text-decoration: none;
-      color: color(text-gy);
+      color: color(text-btn);
+      text-shadow: none;
     }
     .btn:hover {
-      font-weight: bold;
+      text-shadow: none;
+      color: color(text-gy);
     }
   }
 }
@@ -148,6 +157,8 @@ select {
   }
   .small-tx {
     font-size: 8px;
+    text-decoration: none;
+    color: color(text-gy);
   }
   .small-tx-dg {
     font-size: 12px;

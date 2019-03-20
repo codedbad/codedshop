@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat");
+@import url("https://fonts.googleapis.com/css?family=Anton");
 body {
   margin: 0 auto;
   font-family: "Montserrat", monospace;
@@ -66,10 +67,13 @@ header .btn-home {
   text-align: right;
   height: 100%;
   vertical-align: middle;
+  width: 250px;
 }
 
 .container-pv .row-left .small-tx {
   font-size: 10px;
+  text-decoration: none;
+  color: #373737;
 }
 
 .container-pv .row-right {
@@ -77,6 +81,7 @@ header .btn-home {
   text-align: left;
   height: 100%;
   vertical-align: middle;
+  width: 250px;
 }
 
 .container-pv .row-right .small-tx {
@@ -84,18 +89,21 @@ header .btn-home {
 }
 
 .container-pv .row-right .btn-block {
-  margin-left: 10px;
+  margin-left: 15px;
   border: 1px solid #bfbfbf;
-  padding: 10px;
+  padding: 10px 20px;
 }
 
 .container-pv .row-right .btn {
+  font-family: 'Anton', cursive;
   text-decoration: none;
-  color: #373737;
+  color: #969696;
+  text-shadow: none;
 }
 
 .container-pv .row-right .btn:hover {
-  font-weight: bold;
+  text-shadow: none;
+  color: #373737;
 }
 
 .container-menu {
@@ -167,6 +175,8 @@ select {
 
 .container-pl .small-tx {
   font-size: 8px;
+  text-decoration: none;
+  color: #373737;
 }
 
 .container-pl .small-tx-dg {
