@@ -1,9 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat");
-@import url('https://fonts.googleapis.com/css?family=Anton');
+@import url("https://fonts.googleapis.com/css?family=Saira+Extra+Condensed");
 
 $colors: (
-  codedbad-tx: #ffffff,
-  codedbad-bg: #000000,
   text-gy: #373737,
   text-rd: #ff2800,
   text-we: #ffffff,
@@ -16,22 +14,23 @@ $colors: (
 @function color($clip-path) {
   @return map-get($colors, $clip-path);
 }
-body {
+body,
+html {
   margin: 0 auto;
   font-family: "Montserrat", monospace;
+  scroll-behavior: smooth;
 }
 .codedbad {
   font-family: "Montserrat";
   text-align: center;
-  color: color(codedbad-tx);
-  background: color(codedbad-bg);
+  color: #ffffff;
+  background: #000000;
   width: 100px;
   transform: rotateZ(90deg);
   margin: 42px -43px;
   position: fixed;
   font-size: 12px;
   font-weight: bold;
-  z-index: 999;
 }
 header {
   .btn-cart {
@@ -46,91 +45,198 @@ header {
     right: 75px;
     top: 80px;
   }
+  .btn-home-cp {
+    position: fixed;
+    width: 48px;
+    right: 75px;
+    top: 20px;
+  }
 }
-.container-pv {
+p {
+  white-space: pre-line;
+}
+.small-tx {
+  font-size: 10px;
+  color: color(text-gy);
+}
+.small-tx-rd {
+  font-size: 10px;
+  color: color(text-rd);
+  margin-left: 75px;
+}
+.small-tx-cat {
+  font-size: 12px;
+  color: color(text-dg);
+  font-weight: bold;
+}
+.medium-tx {
+  font-size: 12px;
+  color: color(text-dg);
+  font-weight: bold;
+}
+.big-tx {
+  font-size: 16px;
+  color: color(text-gy);
+}
+.container-view {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 10px;
+  padding: 5px;
   text-align: center;
   div {
-    //border: 1px solid color(container-br);
-    margin: 5px;
     height: 400px;
     width: 300px;
     color: color(text-gy);
     line-height: 0%;
   }
   img {
-    display: inline-block;
-    vertical-align: middle;
     max-height: 100%;
     max-width: 100%;
   }
   .row-left {
-    margin: 100px 5px;
+    margin: 110px 5px;
+    margin-bottom: 0px;
     text-align: right;
     height: 100%;
     vertical-align: middle;
     width: 250px;
-    .small-tx {
-      font-size: 10px;
-      text-decoration: none;
-      color: color(text-gy);
-    }
+  }
+  .row-view {
+    margin-top: 10px;
+    margin-bottom: 0px;
   }
   .row-right {
-    margin: 100px 5px;
+    margin: 110px 5px;
+    margin-bottom: 0px;
     text-align: left;
     height: 100%;
     vertical-align: middle;
     width: 250px;
-    .small-tx {
-      font-size: 10px;
-    }
     .btn-block {
-      margin-left: 15px;
+      display: block;
+      margin-left: 0px;
+      width: 70px;
       border: 1px solid color(container-br);
       padding: 10px 20px;
-    }
-    .btn {
-      font-family: 'Anton', cursive;
-      text-decoration: none;
-      color: color(text-btn);
-      text-shadow: none;
-    }
-    .btn:hover {
-      text-shadow: none;
-      color: color(text-gy);
+      text-align: center;
+      .btn {
+        font-family: "Saira Extra Condensed", monospace;
+        text-decoration: none;
+        color: color(text-btn);
+      }
+      .btn:hover {
+        color: color(text-gy);
+        font-weight: bold;
+      }
     }
   }
 }
 
+@media only screen and (max-width: 800px) {
+  header {
+    .btn-cart {
+      right: 10px;
+      top: 10px;
+    }
+    .btn-home {
+      right: 10px;
+      top: 70px;
+    }
+    .btn-home-cp {
+      right: 10px;
+      top: 10px;
+    }
+  }
+  .small-tx {
+    font-size: 8px;
+  }
+  .medium-tx {
+    font-size: 10px;
+  }
+  .big-tx {
+    font-size: 12px;
+  }
+  .container-view {
+    .row-left {
+      margin: 110px 5px;
+      margin-bottom: 0px;
+      width: 200px;
+    }
+    .row-view {
+      margin-top: 5px;
+      margin-bottom: 0px;
+    }
+    .row-right {
+      margin: 110px 5px;
+      margin-bottom: 0px;
+      width: 200px;
+    }
+  }
+}
+@media only screen and (max-width: 600px) {
+  header {
+    .btn-cart {
+      right: 10px;
+      top: 10px;
+    }
+    .btn-home {
+      right: 10px;
+      top: 70px;
+    }
+    .btn-home-cp {
+      right: 10px;
+      top: 10px;
+    }
+  }
+  .small-tx {
+    font-size: 8px;
+  }
+  .medium-tx {
+    font-size: 10px;
+  }
+  .big-tx {
+    font-size: 12px;
+  }
+  .container-view {
+    .row-left {
+      margin: 5px 5px;
+      margin-bottom: 0px;
+      width: 190px;
+      order: 1;
+    }
+    .row-view {
+      margin-top: 5px;
+      margin-bottom: 0px;
+      order: 3;
+    }
+    .row-right {
+      margin: 5px 5px;
+      margin-bottom: 0px;
+      width: 190px;
+      order: 2;
+    }
+  }
+}
 .container-menu {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  padding: 0px;
+  justify-content: flex-end;
+  padding-right: 155px;
+  padding-top: 5px;
   div {
-    //border: 1px solid color(container-b);
-    text-align: right;
-    margin: 7px;
     height: auto;
-    width: 200px;
+    width: 100px;
     color: color(text-gy);
-    text-align: center;
   }
-  .menu-right {
+  .row-sort {
     text-align: right;
   }
-  .menu-left {
-    text-align: left;
+  select {
+    width: 100px;
   }
 }
-select {
-  width: 200px;
-}
-.container-pl {
+.container-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -140,7 +246,8 @@ select {
     list-style-type: none;
     text-align: left;
   }
-  div {
+  .row,
+  .row-cp {
     border: 1px solid color(container-br);
     margin: 5px;
     height: 300px;
@@ -150,89 +257,33 @@ select {
     display: inline-block;
     vertical-align: top;
     img {
-      //margin: 1px auto;
       max-height: 55%;
       max-width: 55%;
     }
   }
-  .small-tx {
-    font-size: 8px;
+  .price-tag-list {
+    line-height: 35px;
+    color: color(text-dg);
+  }
+  .row:hover {
+    border: 1px solid color(container-dg);
+  }
+  .link {
     text-decoration: none;
-    color: color(text-gy);
-  }
-  .small-tx-dg {
-    font-size: 12px;
-    color: color(text-dg);
-    font-weight: bold;
-  }
-  .medium-tx {
-    font-size: 14px;
-    color: color(text-dg);
-    font-weight: bold;
-  }
-  .price-tag-pl {
-    line-height: 40px;
-    color: color(text-dg);
   }
 }
-.link {
-  text-decoration: none;
-}
-.portrait:hover {
-  border: 1px solid color(container-dg);
-}
-// ----------------------------------
-// -------- controlpanel.php --------
-// ----------------------------------
 .input {
   width: 95%;
   margin: 7px;
   box-sizing: border-box;
 }
-.btn-submit {
-  text-decoration: none;
-  color: color(text-gy);
-  border: 1px solid color(container-br);
-  padding: 0px;
-  width: 120px;
-  background: color(text-we);
-}
-.btn-delete {
-  text-decoration: none;
-  color: color(text-gy);
-  border: 1px solid color(container-br);
-  padding: 0px;
-  width: 120px;
-  background: color(text-we);
-}
-.btn-resset {
-  text-decoration: none;
-  color: color(text-gy);
-  border: 1px solid color(container-br);
-  padding: 1px 30px;
-  background: color(text-we);
-}
-.small-tx {
-  font-size: 10px;
-}
-.small-tx-rd {
-  font-size: 10px;
-  color: color(text-rd);
-}
-.btn:hover {
-  font-weight: bold;
-}
-.btn-submit:hover, .btn-delete:hover, .btn-resset:hover{
-  border: 1px solid color(container-dg);
-}
-.cp_con {
+.input-cp {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   padding: 10px;
   text-align: center;
   div {
-    //border: 1px solid color(container-br);
     margin: 5px;
     height: auto;
     width: 325px;
@@ -242,4 +293,42 @@ select {
       font-size: 12px;
     }
   }
+}
+.container-menu-cp {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 5px;
+  div {
+    height: auto;
+    width: 150px;
+    color: color(text-gy);
+  }
+}
+.btn-block {
+  margin-left: 15px;
+  padding: 0px 20px;
+  .btn-submit {
+    text-decoration: none;
+    color: color(text-gy);
+    border: 1px solid color(container-br);
+    width: 120px;
+    background: color(text-we);
+  }
+  .btn-submit:hover {
+    border: 1px solid color(container-dg);
+  }
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table,
+thead,
+th,
+td {
+  border: 1px solid color(container-br);
+  text-align: left;
+  font-size: 14px;
 }
